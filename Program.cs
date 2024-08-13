@@ -49,6 +49,13 @@ namespace CSAdv32
 
     internal class Program
     {
+        static void NextPos(int x, int y, int vx,  int vy, out int rx, out int ry) // 4가지 변수를 가져오고, 2가지 변수를 반환
+        {
+            rx = x + vx;
+            ry = y + vy;
+        }
+
+
         static void Main(string[] args)
         {
             Wanted<int> wantedInt = new Wanted<int>(65535);
@@ -72,6 +79,15 @@ namespace CSAdv32
             {
                 Console.WriteLine("숫자를 입력해주세요. " + output); // 기본값이 0이 들어감
             }
+
+            int x = 0;
+            int y = 0;
+            int vx = 1;
+            int vy = 1;
+
+            Console.WriteLine("현재 좌표 x: {0}, y: {1}", x, y); // {} -> 위치
+            NextPos(x, y, vx, vy, out x, out y);
+            Console.WriteLine("다음 좌표 x: {0}, y: {1}", x, y); // out x -> int x로 좌표가 갱신됨
         }
     }
 }
