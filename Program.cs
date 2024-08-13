@@ -26,6 +26,19 @@ namespace CSAdv32
         }
     }
 
+    class SpecialNeeded<T, U> // Generic
+        where T : IComparable // 인터페이스만 들어가도록 제한
+        where U : IComparable, IDisposable // 인터페이스만 들어가도록 제한
+    {
+        public T Value1;
+        public U Value2;
+        public SpecialNeeded(T value1, U value2)
+        {
+            Value1 = value1;
+            Value2 = value2;
+        }
+    }
+
     internal class Program
     {
         static void Main(string[] args)
