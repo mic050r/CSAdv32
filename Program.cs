@@ -49,6 +49,12 @@ namespace CSAdv32
 
     internal class Program
     {
+        struct Point
+        {
+            public int x;
+            public int y;
+        }
+
         static void NextPos(int x, int y, int vx,  int vy, out int rx, out int ry) // 4가지 변수를 가져오고, 2가지 변수를 반환
         {
             rx = x + vx;
@@ -86,8 +92,14 @@ namespace CSAdv32
             int vy = 1;
 
             Console.WriteLine("현재 좌표 x: {0}, y: {1}", x, y); // {} -> 위치
-            NextPos(x, y, vx, vy, out x, out y);
+            NextPos(x, y, vx, vy, out x, out y); // 포인터랑 비슷한 느낌
             Console.WriteLine("다음 좌표 x: {0}, y: {1}", x, y); // out x -> int x로 좌표가 갱신됨
+
+            // Point 구조체 실습
+            Point point;   // 구조체 변수 선언. 8바이트 잡힘.
+            point.x = 10;  // 구조체 변수는 반드시 초기화 해야함.(컴파일 에러)
+            point.y = 10;  // 선언 안해주면 컴파일 조차 안됨.
+            Console.WriteLine("point.x: {0}, point.y: {1}", point.x, point.y);
         }
     }
 }
