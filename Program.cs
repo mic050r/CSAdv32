@@ -53,6 +53,28 @@ namespace CSAdv32
         {
             public int x;
             public int y;
+            public string testA;
+            public string testB;
+            // public string testB = "init"; // 구조체 내 변수는 선언과 동시에 초기화 불가능
+
+            // public Point() {} // 구조체 -> 기본 생성자 정의 불가능
+            // 상속x -> 이미 기본 생성자를 만들어 놨다.
+
+            public Point(int x, int y) // 구조체 생성자 -> 모든 변수 초기화 해주어야함.
+            {
+                this.x = x; 
+                this.y = y;
+                this.testA = "init";
+                this.testB = "init";
+            }
+
+            public Point(int x, int y, string t) // 생성자 오버로딩 가능
+            {
+                this.x = x;
+                this.y = y;
+                this.testA = "init";
+                this.testB = "init";
+            }
         }
 
         static void NextPos(int x, int y, int vx,  int vy, out int rx, out int ry) // 4가지 변수를 가져오고, 2가지 변수를 반환
